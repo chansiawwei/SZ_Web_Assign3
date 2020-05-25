@@ -1,0 +1,194 @@
+/*
+filename: [CHAN SIAW ZHENG]
+author: [CHAN SIAW ZHENG]
+created: [31/3/2020]
+last modified: [4/4/2020]
+description: [CSS styles of HTML Assignment enquiry.css, Design of the website]
+*/
+
+.directory {
+	background : lightgrey;
+	padding :10px;
+	font-size: 14px;
+	
+}
+
+.directory a{
+	margin-left: 10px;
+}
+
+.profile .container {
+	border-radius: 30px;
+    margin: auto;
+    width: 65%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.profile .container img {
+	margin-left: 45%;
+	margin-right: 45%;
+	width: 10%;
+	padding: 5px;
+}
+
+.profile h2{
+	text-align:center;
+}
+
+.profile{
+	padding:100px;
+}
+
+.profile #txtbox-firstname{
+	
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+	
+}
+
+.profile #txtbox-lastname{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #txtbox-email{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+fieldset {
+    border: 0;
+}
+
+.profile #txtbox-address{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #txtbox-suburb{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #formcontrol-state{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    /* height: 30px;  */
+}
+
+.profile #txtbox-postcode{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #phone{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #txtbox-billing-address{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+.profile #formcontrol-product{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    /* height: 30px;  */
+}
+
+.profile #txtbox-quantity{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:30%;
+    padding: 20px; 
+    height: 30px; 
+}
+
+
+.profile #favcolor{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:20%;
+    height: 30px; 
+}
+
+.profile .txtbox-comment{
+	border-radius: 25px;
+    border: 2px solid #73AD21;
+	width:100%;
+    padding: 20px; 
+    height: 80px; 
+}
+
+.submit{
+	margin-top: 50px;
+	color: #FFFFFF;
+	background-color: #73AD21;
+	border: none;
+	border-radius: 20px;
+	padding:20px 32px;
+	display:inline-block;
+	text-align:center;
+	font-size:22px;
+    transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 729px){
+	.profile{
+	padding:10px;
+	}
+	
+	.profile .container {
+		width:90%
+	}
+	
+	.profile p{
+	text-align:center;
+	font-size : 80%;
+	}
+
+	.submit{
+	margin-top: 50px;
+	color: #FFFFFF;
+	background-color: #73AD21;
+	border: none;
+	border-radius: 20px;
+	padding:20px 32px;
+	display:inline-block;
+	text-align:center;
+	font-size:20px;
+    cursor: pointer;
+	}
+
+}

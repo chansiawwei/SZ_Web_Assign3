@@ -1,0 +1,326 @@
+/*
+filename: [CHAN SIAW ZHENG]
+author: [CHAN SIAW ZHENG]
+created: [31/3/2020]
+last modified: [4/4/2020]
+description: [CSS styles of HTML Assignment product.css, Design of the website]
+*/
+
+.parallax1 {
+    /* The bg used */
+    background-color:white;
+
+    /* Set a specific height */
+    min-height: 50px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax2 {
+    /* The bg used */
+    background-color : white;
+
+    /* Set a specific height */
+    min-height: 100px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.directory {
+	background : lightgrey;
+	padding :10px;
+	font-size: 14px;
+	
+}
+
+.directory a{
+	margin-left: 10px;
+}
+
+.section-1{
+	background-color: white;
+	
+}
+
+.section-1 img {
+	width: 50%;
+	float:left;
+	margin-right: 20px;
+	
+}
+
+.description {
+	float: right;
+	
+}
+
+
+.price-tag {
+    font-size: 40px;
+    color:rgb(0, 0, 0);
+	font-style: italic;
+	margin-top: 20px;
+}
+
+#box {
+    font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+  }
+
+.fa{
+	padding:0;
+}
+
+.checked{
+	color: orange;
+}
+
+.details {
+	text-align:justify;
+	margin-top: 30px;
+}
+
+.details h3{
+	text-align:justify;
+	margin-top: 30px;
+}
+
+.section-1 button{
+	margin-top: 50px;
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.section-2{
+    background-image: url("../styles/images/bg_theme2.gif");
+    background-color:black;
+    margin-top: 20px;
+    position:relative;
+    margin:0 auto;
+}
+
+.section-2 h2{
+    padding:10px;
+    text-align:center;
+    color:rgb(0, 0, 0);
+}
+
+.section-2 img {
+    width: 100%;
+    padding: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+
+}
+
+@keyframes section-2FadeInOut {
+    /* distributing times evenly */
+    0% {
+        opacity:1;
+      }
+      45% {
+      opacity:1;
+      }
+      55% {
+      opacity:0;
+      }
+      100% {
+      opacity:0;
+      }
+      }
+    
+
+
+  .section-2 img.top {
+    position: absolute;
+    animation-name: section-2FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: alternate;
+    }
+
+.section-3 table {
+	border-collapse: collapse;
+    border: 2px solid black;
+	width: 100% 
+}
+.section-3 .row-th{
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    
+}
+
+.section-3 table td{
+	border: 2px solid black;
+	padding: 6px;
+  	text-align: center;
+}
+
+.section-3 .price{
+	text-align: right;
+	
+}
+
+
+
+.related-items .items{
+	padding-right:100px;
+}
+
+.related-items h2{
+	padding:10px;
+    text-align:center;
+    font-weight: bold;
+
+}
+
+.related-items .ol{
+	padding:10px;
+    text-align:center;
+    font-weight: bold;
+
+}
+
+.related-items .price{
+	padding:10px;
+    text-align:center;
+    font-weight: bold;
+
+}
+
+.related-items {
+    position:relative;
+    margin:0 auto;
+  }
+
+.related-items img{
+	width:100%;
+    padding:20px;
+    margin:0 auto;
+    display: inline-block;
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes related-itemsFadeInOut {
+    /* distributing times evenly */
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.related-items img:nth-of-type(1) {
+    animation-delay: 5s;
+}
+
+.related-items img:nth-of-type(2) {
+    animation-delay: 3s;
+}
+.related-items img:nth-of-type(3) {
+    /* add some delay for the first picture as well */
+    animation-delay: 1s;
+}
+
+  .related-items img.top {
+    position: absolute;
+    animation-name: related-itemsFadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    animation-direction: alternate;
+    }
+
+/* Two image containers */
+.productcolumn {
+  float: left;
+  width: 50%;
+  padding: 50px;
+  text-align:center;
+}
+
+
+/* Clear floats after image containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+.related-items h4{
+    text-align:center;
+    font-weight: bold;
+}
+
+.related-items p {
+	text-align:center;
+}
+
+.related-items button{
+	margin-top: 10px;
+	background-color: #6a6a93;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+/* Make the screen responsive/ porpotional while in mobile version */
+
+@media screen and (max-width: 729px){
+	.related-items .items{
+	padding:0px;
+}
+}
+	.related-items button{
+	margin-top: 10px;
+	background-color: #6a6a93;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+	.section-1 img {
+	width: 90%;
+	float:left;
+	margin-right: 20px;
+	
+}

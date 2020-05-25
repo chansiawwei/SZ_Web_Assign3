@@ -1,0 +1,105 @@
+/*
+filename: [CHAN SIAW ZHENG]
+author: [CHAN SIAW ZHENG]
+created: [31/3/2020]
+last modified: [4/4/2020]
+description: [CSS styles of HTML Assignment aboutme.css, Design of the website]
+*/
+
+.directory {
+	/* Set a directory used */
+	background : lightgrey;
+	padding :10px;
+	font-size: 14px;
+	
+}
+
+.directory a{
+	margin-left: 10px;
+}
+
+.parallax2 {
+    /* The bg used */
+    background-color:white;
+
+    /* Set a specific height */
+    min-height: 80px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.procol-1 h1 {
+	font-weight:bold;
+	text-align: center;
+	padding:10px;
+}
+
+.bio {
+	background-image: url("../styles/images/bg1.jpg");
+	border: 5px solid rgb(0, 0, 0);
+}
+
+
+.bio img {
+	width:25%;
+	float:right;
+	position: relative;
+	border: 5px solid rgb(0, 0, 0);
+	border-style: double;
+	padding: 20px;
+}
+
+.bio p {
+	font-size : 20px;
+	padding-left: 60px;
+	padding-top:50px;
+}
+
+.bio dl {
+	list-style :none;
+	font-size: 16px;
+	padding: 10px;
+}
+
+
+table {
+	margin-top: 30px;
+	text-align: center;
+	background-color: #FFEDE7;
+	width:100%;
+	border: 2px solid black;
+	border-style: double;
+  	border-collapse: collapse;
+	table-layout: fixed;
+	text-align: center;
+}
+
+table th{
+	font-weight: bold;
+	border: 2px solid black;
+	text-align: center;
+}
+
+table td{
+	border: 2px solid black;
+	padding: 6px;
+  	text-align: center;
+}
+
+
+@media screen and (max-width: 729px){
+
+.bio p {
+	padding-left:10px;;
+}
+
+.bio img {
+	width:100%;
+	float:right;
+	padding: 10px;
+}
+}
