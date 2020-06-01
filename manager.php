@@ -142,23 +142,23 @@ while($row = $result->fetch_assoc())
    
     }
     echo '<td> <button id="change">Change Status</button></td>';
-    $option = new WC_Order($option);
+    // $option = new WC_Order($option);
 
-    if (!empty($option)) {
-        $option->update_status( 'fulfilled' );
-    }
+    // if (!empty($option)) {
+    //     $option->update_status( 'fulfilled' );
+    // }
 
-    $option = new WC_Order($option);
+    // $option = new WC_Order($option);
 
-    if (empty($option)) {
-        $option->update_status( 'pending' );
-    }
+    // if (empty($option)) {
+    //     $option->update_status( 'pending' );
+    // }
 
-    $option = new WC_Order($option);
+    // $option = new WC_Order($option);
 
-    if (empty($option)) {
-        $option->update_status( 'pending' );
-    }
+    // if (empty($option)) {
+    //     $option->update_status( 'pending' );
+    // }
     echo "<td> <button onclick='delete(event)'>Cancel</button></td>";
 
     echo "</tr>";

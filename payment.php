@@ -119,7 +119,9 @@ validateFormat($state,$postcode);
       $errMsg .= "<p>Please select at least one product.</p>";
     }
     if ($errMsg != "") {
-      echo "<p . $errMsg .>";
+      echo   "<h6>" . $errMsg . "</h6>";
+      header("Location:enquire.php?error=".$errMsg);
+
     }
   }
 

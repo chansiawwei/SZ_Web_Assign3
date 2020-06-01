@@ -1,7 +1,9 @@
 
 <?php
 session_start(); 
-
+if($_GET){
+	print_r($_GET);       
+}
 //Data validaton here
   if (!empty($_POST)){
   if (isset($_POST['submit'])) { 
