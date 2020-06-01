@@ -41,7 +41,8 @@ $totalprice=$_SESSION["totalprice"];
 <body onload="myFunction()">
 <?php include 'header.inc';?>
 <div class="container">
-<H1>FIX ORDER PAGE</H1>
+<H1>FIX ORDER</H1>
+
 <form class="form" method="POST" action="process_order.php"  onsubmit="return  validate()">
 <fieldset>
         <legend>Payment Details</legend>
