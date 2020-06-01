@@ -8,9 +8,9 @@
 	<a href="index.php">Home</a>
 	<a href="product.php">Product</a>
 	<a href="enquire.php" >Enquiry</a>
-	<a href="about.html" class="active">About Me</a>
-	<a href="enhancements.html" >Enhancements</a>
-	<a href="managers.php" >Manage Order</a>
+	<a href="about.php" class="active">About Me</a>
+	<a href="enhancements.php" >Enhancements</a>
+	<a href="manager.php" >Manage Order</a>
 
 	</p>
 </div>

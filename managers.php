@@ -33,7 +33,7 @@ console.log('asd');
 <body onload="myFunction()">
 <?php include 'header.inc';?>
 
-<form action="manager.php" method="POST">
+<form action="managers.php" method="POST">
 
 <p><label>Display Option:</label></p>
 <p><label class="contact">					
@@ -142,25 +142,9 @@ while($row = $result->fetch_assoc())
    
     }
     echo '<td> <button id="change">Change Status</button></td>';
-    $option = new WC_Order($option);
 
-    if (!empty($option)) {
-        $option->update_status( 'fulfilled' );
-    }
 
-    $option = new WC_Order($option);
-
-    if (empty($option)) {
-        $option->update_status( 'pending' );
-    }
-
-    $option = new WC_Order($option);
-
-    if (empty($option)) {
-        $option->update_status( 'pending' );
-    }
     echo "<td> <button onclick='delete(event)'>Cancel</button></td>";
-
     echo "</tr>";
 }
 echo "</table>";

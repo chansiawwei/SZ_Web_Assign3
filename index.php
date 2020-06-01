@@ -18,7 +18,9 @@
 	</head>
 	
 <body>
-<?php include 'header.inc';?>
+<?php include 'header.inc';
+
+?>
 
 
 <div class="directory">

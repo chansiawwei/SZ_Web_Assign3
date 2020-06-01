@@ -17,7 +17,7 @@
 	</head>
 	
 	<body>
-	<header class="header">
+	<!-- <header class="header">
 		<div class="nav-bar" id="myNavBar">
 	<p><a class="logo" href ="index.html">
 		<img src="images/logo.jfif" alt="Logo" />
@@ -32,7 +32,10 @@
 	<a href="enhancements2.html" >Enhancements2</a>
 	</p>
 </div>
-	</header><!--Header End-->
+	</header>Header End -->
+	<?php include 'header.inc';
+
+?>
 	
 	<div class="directory">
 		<div class="container">

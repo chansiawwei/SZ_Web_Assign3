@@ -1,6 +1,12 @@
 <?php
 session_start(); 
 require 'settings.php';
+$cardtype="";
+$cardname="";
+$cardnumber="";
+$expdate="";
+$cvv="";
+
 //- unable to access directly through URL  [2]
 
 if($_SESSION['fromMain'] == "false"){
@@ -11,34 +17,178 @@ else{
   //reset the variable
   $_SESSION['fromMain'] = "false";
 }
+
+if($_SESSION['submit'] == "false"){
+  //send them back
+  header("Location: fix_order.php");
+}
+else{
+  //reset the variable
+  $_SESSION['submit'] = "false";
+}
+
 function sanitizeData($param){
-  $data=stripslashes(trim($param));
+  $data = stripslashes(trim($param));
+  $data = htmlspecialchars($param);
   return $data;
 }
+
 //Data validaton here
   if (!empty($_POST)){
   if (isset($_POST['submit'])) { 
 
-    if (isset($_POST['cardnumber'])){
+    if (isset($_POST['cardtype']) && $_POST['cardtype'] !=""){
+      $cardtype=$_POST['cardtype'];
+      $_SESSION['cardtype'] = $cardtype;
+  
+  }
+    else {
+      echo "<p>Error: Enter data in the <a href=\"fix_order.php\"> Form </a></p>";
+    }
+
+    if (isset($_POST['cardname']) && $_POST['cardname'] !=""){
+      $cardname=$_POST['cardname'];
+      $_SESSION['cardname'] = $cardname;
+  
+  }
+    else {
+      echo "<p>Error: Enter data in the <a href=\"fix_order.php\"> Form </a></p>";
+    }
+
+    if (isset($_POST['cardnumber']) && $_POST['cardnumber'] !=""){
       $cardnumber=$_POST['cardnumber'];
       $_SESSION['cardnumber'] = $cardnumber;
   
   }
-  if (isset($_POST['expdate'])){
-    $expdate=$_POST['expdate'];
-    $_SESSION['expdate'] = $expdate;
+    else {
+      echo "<p>Error: Enter data in the <a href=\"fix_order.php\"> Form </a></p>";
+    }
 
-}
-if (isset($_POST['cvv'])){
-  $cvv=$_POST['cvv'];
-  $_SESSION['cvv'] = $cvv;
+    if (isset($_POST['expdate']) && $_POST['expdate'] !=""){
+      $expdate=$_POST['expdate'];
+      $_SESSION['expdate'] = $expdate;
 
-}
-if (isset($_POST['cardtype'])){
-  $cardtype=$_POST['cardtype'];
-  $_SESSION['cardtype'] = $cardtype;
+  }
+    if (isset($_POST['cvv']) && $_POST['cvv'] !=""){
+      $cvv=$_POST['cvv'];
+      $_SESSION['cvv'] = $cvv;
 
+  }
+    else {
+      echo "<p>Error: Enter data in the <a href=\"fix_order.php\"> Form </a></p>";
+    }
+
+
+  validateEmptyFill($cardname,$cardnumber,$cardtype,$expdate,$cvv); 
+  validateFormat($cardtype,$cardnumber);
+  }  
 }
+  function validateEmptyFill($cardname,$cardnumber,$cardtype,$expdate,$cvv){
+    $errMsg = "";
+
+    if ($cardnumber=="") {
+        $errMsg .= "<p>Please enter card number.</p>";
+    }
+    else if ((strlen($cardnumber)<15) || (strlen($cardnumber)>16)) {
+      $errMsg .= "<p>Card number must be between 15 or 16.</p>";
+    }
+    if ($cardname=="") {
+      $errMsg .= "<p>Please enter card name.</p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/", $cardname)) {
+      $errMsg .= "<p>Only alpha letters allowed in card name.</p>";
+    }
+    if ($cardtype=="") {
+      $errMsg .= "<p>Please enter card type.</p>";
+    }
+    if ($expdate=="") {
+      $errMsg .= "<p>Please enter expired date.</p>";
+    }
+    if ($cvv=="") {
+      $errMsg .= "<p>Please enter cvv.</p>";
+    }
+    if ($errMsg != "") {
+      echo "<p . $errMsg .>";
+    }
+  }
+
+  function validateFormat($cardtype,$cardnumber){
+          // echo strlen($cardnumber);
+
+  if(($cardtype)=="visa" ){
+    $num_length = strlen((string)$cardnumber);
+      if($num_length == 16) {
+      // Pass
+        echo "true";
+      } else {
+      // Fail
+        echo "Visa Card Number must be 16 digits";
+          }
+      }
+    // if(($cardtype)=="visa" ){
+    //   echo strlen($cardnumber);
+    //   if(strlen($cardnumber) = 16){
+    //     echo 'true';
+    //   }
+    //   else{
+    //     echo 'Visa card number has to be 16 digit';
+    //   }
+    // }
+
+    if(($cardtype)=="visa" ){
+      if($cardnumber[0]=='4' ){
+        echo 'true';
+      }
+      else{
+        echo 'Visa Card has to start with digit 4';
+      }
+    }
+
+    if(($cardtype)=="mastercard" ){
+      $num_length = strlen((string)$cardnumber);
+        if($num_length == 16) {
+        // Pass
+          echo "true";
+        } else {
+        // Fail
+          echo "Master Card Number must be 16 digits";
+            }
+        }
+
+      if(($cardtype)=="mastercard" ){
+          if(substr($cardnumber,0,2) < 51 || substr($cardnumber,0,2) > 55){
+            echo 'Master Card Number has to start with digit 51 through to 55';
+          }
+          else{
+            echo 'true';
+          }
+        }
+
+        if(($cardtype)=="americanexpress" ){
+          $num_length = strlen((string)$cardnumber);
+            if($num_length == 1) {
+            // Pass
+              echo "true";
+            } else {
+            // Fail
+              echo "American Express Card Number must be 15 digits";
+                }
+            }
+  
+            if(($cardtype)=="americanexpress" ){
+              if(substr($cardnumber,0,2) == 34 || substr($cardnumber,0,2) == 37){
+                echo 'true';
+              }
+              else{
+                echo 'American Express Card Number has to start with digit 34 or 37';
+              }
+            }
+    
+
+  }
+
+  function validate() {
+
     $firstname = sanitizeData($_SESSION['firstname']);
     $lastname = sanitizeData($_SESSION['lastname']);
     $email =sanitizeData( $_SESSION['email']);
@@ -124,7 +274,6 @@ $sql = "CREATE TABLE orders (
 } 
 
 
-
-  }
-
+  
+  
 ?>

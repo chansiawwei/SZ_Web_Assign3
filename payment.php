@@ -5,77 +5,189 @@ session_start();
 //- unable to access directly through URL  [2]
 
 $_SESSION['fromMain'] = "true";
-header("Location: process_order.php");
-
+$firstname="";
+$lastname="";
+$email="";
+$product="";
+$quantity="";
+$str_addr="";
+$state="";
+$postcode="";
+$phone="";
+$contact="";
 
 //Data validaton here
   if (!empty($_POST)){
   if (isset($_POST['submit'])) { 
-    if (isset($_POST['firstname'])){
+    if (isset($_POST['firstname']) && $_POST['firstname'] !="" ){
         $firstname=$_POST['firstname'];
         $_SESSION['firstname'] = $firstname;
 
     }
-    if (isset($_POST['lastname'])){
+
+    if (isset($_POST['lastname']) && $_POST['lastname'] !="" ){
       $lastname=$_POST['lastname'];
       $_SESSION['lastname'] = $lastname;
 
 }
-if (isset($_POST['email'])){
+if (isset($_POST['email'])  && $_POST['email'] !="" ){
   $email=$_POST['email'];
   $_SESSION['email'] = $email;
 
 }
-if (isset($_POST['product'])){
+if (isset($_POST['product'])  && $_POST['product'] !="" ){
   $product=$_POST['product'];
   $_SESSION['product'] = $product;
 
 
 }
-if (isset($_POST['quantity'])){
+if (isset($_POST['quantity'])  && $_POST['quantity'] !="" ){
   $quantity=$_POST['quantity'];
   $_SESSION['quantity'] = $quantity;
 
 }
-    if (isset($_POST['state'])){
+if (isset($_POST['address'])  && $_POST['address'] !="" ){
+  $str_addr=$_POST['address'];
+  $_SESSION['addresss'] = $str_addr;
+
+}
+    if (isset($_POST['state'])  && $_POST['state'] !="" ){
       $state=$_POST['state'];
       $_SESSION['state'] = $state;
 
   }
-  if (isset($_POST['postcode'])){
+  if (isset($_POST['postcode'])  && $_POST['postcode'] !="" ){
     $postcode=$_POST['postcode'];
     $_SESSION['postcode'] = $postcode;
 
 }
-  if (isset($_POST['postcode'])){
-    $postcode=$_POST['postcode'];
-    $_SESSION['postcode'] = $postcode;
+  if (isset($_POST['phoneno'])  && $_POST['phoneno'] !="" ){
+    $phone=$_POST['phoneno'];
+    $_SESSION['phoneno'] = $phone;
 
 }
-} 
-validateState($state,$postcode);
+if (isset($_POST['preferredcontact'])  && $_POST['preferredcontact'] !="" ){
+  $contact=$_POST['preferredcontact'];
+  $_SESSION['preferredcontact'] = $contact;
+
+}
+}
+validateEmptyFill($firstname,$lastname,$email,$str_addr,$state,$postcode,$phone,$contact,$quantity,$product); 
+validateFormat($state,$postcode);
   }
 
-  function validateState($state,$postcode){
+  function validateEmptyFill($firstname,$lastname,$email,$str_addr,$state,$postcode,$phone,$contact,$quantity,$product){
+    $errMsg = "";
+
+    if ($firstname=="") {
+        $errMsg .= "<p>Please enter first name.</p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/", $firstname)) {
+      $errMsg .= "<p>Only alpha letters allowed in first name.</p>";
+    }
+    if ($lastname=="") {
+      $errMsg .= "<p>Please enter last name.</p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/", $lastname)) {
+      $errMsg .= "<p>Only alpha letters allowed in last name.</p>";
+    }
+    if ($email=="") {
+      $errMsg .= "<p>Please enter email.</p>";
+    }
+    if ($str_addr=="") {
+      $errMsg .= "<p>Please enter address.</p>";
+    }
+    if ($state=="") {
+      $errMsg .= "<p>Please enter state.</p>";
+    }
+    if ($postcode=="") {
+      $errMsg .= "<p>Please enter postcode.</p>";
+    }
+    else if (!preg_match("/^[0-9]*$/", $postcode)) {
+      $errMsg .= "<p>Only digits allowed in postcode.</p>";
+    }
+    if ($phone=="") {
+      $errMsg .= "<p>Please enter phone.</p>";
+    }
+    else if (!preg_match("/^[0-9]*$/", $phone)) {
+      $errMsg .= "<p>Only digits allowed in phone no.</p>";
+    }
+    if ($quantity=="") {
+      $errMsg .= "<p>Please enter quantity.</p>";
+    }
+    if ($product=="") {
+      $errMsg .= "<p>Please select at least one product.</p>";
+    }
+    if ($errMsg != "") {
+      echo "<p . $errMsg .>";
+    }
+  }
+
+  function validateFormat($state,$postcode){
     if(strtolower($state)=="vic" ){
       if($postcode[0]=='3' || $postcode[0]=='8' ){
         echo 'true';
       }
       else{
-        echo 'false';
+        echo 'Postcode must start with 3 or 8';
       }
+    }
+    if(strtolower($state)=="nsw" ){
+      if($postcode[0]=='1' || $postcode[0]=='2' ){
+        echo 'true';
       }
-      if(strtolower($state)=="sa" ){
-        if($postcode[0]=='5' ){
-          return true;
-        }
-        else{
-          
-          echo "Postcode must start with 5";
-          return false;
-          }
-        }
-      
+      else{
+        echo 'Postcode must start with 1 or 2';
+      }
+    }
+    if(strtolower($state)=="qld" ){
+      if($postcode[0]=='4' || $postcode[0]=='9' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 4 or 9';
+      }
+    }
+    if(strtolower($state)=="nt" ){
+      if($postcode[0]=='0' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 0';
+      }
+    }
+    if(strtolower($state)=="wa" ){
+      if($postcode[0]=='6' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 6';
+      }
+    }
+    if(strtolower($state)=="sa" ){
+      if($postcode[0]=='5' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 5';
+      }
+    }
+    if(strtolower($state)=="tas" ){
+      if($postcode[0]=='7' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 7';
+      }
+    }
+    if(strtolower($state)=="act" ){
+      if($postcode[0]=='0' ){
+        echo 'true';
+      }
+      else{
+        echo 'Postcode must start with 0';
+      }
+    }  
 
         /*
         TODO: ADD ALL VALIDATION CODE FROM PART2.JS TO HERE

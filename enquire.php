@@ -97,7 +97,7 @@ validateState($state,$postcode);
 			
 		<h2>Get in Touch!</h2>
 		<hr />
-			<form class="form" method="post" action="payment.php" onsubmit="return  validate()" novalidate>
+			<form class="form" method="post" action="payment.php" onsubmit="return  validate()" novalidate="novalidate">
 				<fieldset>
 					<legend>Customer Details</legend>
 					<p><label for="txtbox-firstname">First Name</label> 
@@ -116,10 +116,10 @@ validateState($state,$postcode);
 				<fieldset>
 					<legend class="address">Address</legend> 
 					<p><label for="txtbox-address">Street Address</label>
-					<input type="text" id="txtbox-address" maxlength="40" required="required"/>
+					<input type="text" id="txtbox-address" name="address" maxlength="40" required="required"/>
 					</p>
 					<p><label for="txtbox-suburb">Suburb/Town</label>
-					<input type="text" id="txtbox-suburb" maxlength="20" required="required"/>
+					<input type="text" id="txtbox-suburb" name="suburb" maxlength="20" required="required"/>
 					</p>
 					<p><label for="formcontrol-state">State</label>
 					<select name="state" id="formcontrol-state" required="required">
